@@ -182,7 +182,7 @@ duty_cycle = 5.0 + (angle / 180.0) * 5.0
 
 - Update the `SmartBedsideSystem` constructor to:
    - Configure BOARD pin 12 as an output pin, using the corresponding constant defined in `smart_bedside_system.py`.
-   - Create a PWM instance operating at `50` Hz and assign it to `SmartBedsideSystem.o2_servo`.
+   - Create a PWM instance on BOARD pin 12, using the corresponding constant defined in `smart_bedside_system.py`, with a frequency of `50` Hz. Assign this instance to `SmartBedsideSystem.o2_servo`.
    - Start the PWM signal with a duty cycle of `5.0%`, corresponding to the fully closed valve position.
    - Initialize the instance variable `SmartBedsideSystem.o2_valve_angle` to `0.0` degrees.
 
