@@ -24,10 +24,6 @@ The buzzer, the pushbutton, and the servo motor are connected to the Raspberry P
 - Each time you **IMPLEMENT** a user story, **COMMIT** your changes.
 - Whenever you need to handle an error situation (including situations not explicitly covered by the user stories), raise a `SmartBedsideError` exception.
 
-## API Usage
-
-Take a few minutes to understand, at a high level, how the API works. If you do not fully understand the API, do not worry: further details will be provided in the individual user stories (see the _Issues_ section).
-
 ## Project Structure
 
 The project is organized as follows:
@@ -35,12 +31,15 @@ The project is organized as follows:
 ```
 smartbedsidesystem/
 ├── mock/
+│   ├── __init__.py                  # Marks the folder as a Python package
 │   ├── GPIO.py                      # Mock of the RPi.GPIO library
 │   └── max30102.py                  # Mock of the DFRobot_BloodOxygen_S library (MAX30102 sensor)
 ├── src/
+│   ├── __init__.py                  # Marks the folder as a Python package
 │   ├── smart_bedside_error.py       # SmartBedsideError exception
 │   └── smart_bedside_system.py      # SmartBedsideSystem class (to be implemented)
 ├── test/
+│   ├── __init__.py                  # Marks the folder as a Python package
 │   └── test_smart_bedside_system.py # Acceptance test suites for the user stories
 └── README.md
 ```
@@ -51,6 +50,10 @@ smartbedsidesystem/
 - **Tests of a single user story:** click the green run icon next to the corresponding class (e.g., `class TestUserStory2`) and select *Run*. This can help you focus on a specific user story, for example while fixing a failing test.
 
 We recommend to **ALWAYS** run the tests of **ALL** user stories: a change made for the current user story may break a previously implemented one. In any case, before **COMMITTING**, you **MUST** run the tests of all user stories and make sure that they pass.
+
+## API Usage
+
+Take a few minutes to understand, at a high level, how the API works. If you do not fully understand the API, do not worry: further details will be provided in the individual user stories (see the _Issues_ section).
 
 ## User Stories
 
@@ -182,7 +185,7 @@ duty_cycle = 5.0 + (angle / 180.0) * 5.0
 
 - Update the `SmartBedsideSystem` constructor to:
    - Configure BOARD pin 12 as an output pin, using the corresponding constant defined in `smart_bedside_system.py`.
-   - Create a PWM instance operating at `50` Hz and assign it to `SmartBedsideSystem.o2_servo`.
+   - Create a PWM instance on BOARD pin 12, using the corresponding constant defined in `smart_bedside_system.py`, with a frequency of `50` Hz. Assign this instance to `SmartBedsideSystem.o2_servo`.
    - Start the PWM signal with a duty cycle of `5.0%`, corresponding to the fully closed valve position.
    - Initialize the instance variable `SmartBedsideSystem.o2_valve_angle` to `0.0` degrees.
 
