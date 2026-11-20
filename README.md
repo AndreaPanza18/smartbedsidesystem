@@ -22,7 +22,7 @@ The buzzer, the pushbutton, and the servo motor are connected to the Raspberry P
 - The *SmartBedsideSystem* requirements are divided into a set of **USER STORIES**, which serve as a to-do list (see the _Issues_ section).
 - You should be able to develop *SmartBedsideSystem* incrementally, without having to understand all the user stories upfront. **DO NOT read ahead.** Instead, address the user stories one at a time, following the order in which they are provided. Start by implementing the requirements of the first user story. Once a story has been **IMPLEMENTED**, move on to the **NEXT** one. A story is considered **IMPLEMENTED** when its acceptance test suite **PASSES**. Naturally, all acceptance test suites for previously implemented stories must continue to pass as well. You may need to revise your program as you progress through subsequent user stories.
 - Each time you **IMPLEMENT** a user story, **COMMIT** your changes.
-- Whenever you need to handle an error situation (including situations not explicitly covered by the user stories), raise a `SmartBedsideError` exception.
+- Whenever a user story requires you to handle an error situation, raise a `SmartBedsideError` exception. Do **NOT** add error checks that are not required by the user stories.
 
 ## Project Structure
 
@@ -91,6 +91,10 @@ The sensor **only** returns SpO₂ values ranging from `70` to `100`, inclusive.
   - If the sensor returns `-1`, the method must raise a `SmartBedsideError`.
   - Otherwise, return the SpO₂ reading as an integer.
 
+Acceptance tests: `TestUserStory1` in `test/test_smart_bedside_system.py`.
+
+> **Reminder:** Once all the tests in `TestUserStory1` pass, **COMMIT** your changes before moving on to User Story #2.
+
 ### User Story #2 – Manage the Oxygen Saturation Alarm
 
 The system is equipped with an **active buzzer module (KY-012)** to alert medical staff whenever the patient's blood oxygen saturation (SpO₂) drops below a critical level.
@@ -124,6 +128,10 @@ Use the patient's SpO₂ reading (see User Story #1) to determine whether the al
   - Control the alarm buzzer according to the alarm rules described above.
   - Update `SmartBedsideSystem.alarm_on` to reflect the current alarm status.
 
+Acceptance tests: `TestUserStory2` in `test/test_smart_bedside_system.py`.
+
+> **Reminder:** Once all the tests in `TestUserStory2` pass (together with those of the previous user stories), **COMMIT** your changes before moving on to User Story #3.
+
 ### User Story #3 – Stop the Oxygen Saturation Alarm
 
 The system is equipped with a **pushbutton (B3F-1020)** that allows medical staff to stop the alarm while attending to the patient.
@@ -151,6 +159,10 @@ The pushbutton pin has **NOT** yet been configured as an input pin in the `Smart
   - Read the pushbutton, determining whether it is pressed.
   - Control the alarm buzzer according to the pushbutton behavior described above.
   - Update `SmartBedsideSystem.alarm_on` to reflect the resulting alarm status.
+
+Acceptance tests: `TestUserStory3` in `test/test_smart_bedside_system.py`.
+
+> **Reminder:** Once all the tests in `TestUserStory3` pass (together with those of the previous user stories), **COMMIT** your changes before moving on to User Story #4.
 
 ### User Story #4 – Control the Oxygen Delivery Valve
 
@@ -180,7 +192,6 @@ The servo motor's current angle is stored in the instance variable `SmartBedside
 duty_cycle = 5.0 + (angle / 180.0) * 5.0
 ```
 
-
 **Requirements**
 
 - Update the `SmartBedsideSystem` constructor to:
@@ -195,6 +206,10 @@ duty_cycle = 5.0 + (angle / 180.0) * 5.0
    - Set the servo motor's position by changing its duty cycle.
    - Update `SmartBedsideSystem.o2_valve_angle` with the target angle.
 
+Acceptance tests: `TestUserStory4` in `test/test_smart_bedside_system.py`.
+
+> **Reminder:** Once all the tests in `TestUserStory4` pass (together with those of the previous user stories), **COMMIT** your changes before moving on to User Story #5.
+
 ### User Story #5 – Automatically Control the Oxygen Delivery Valve
 
 The oxygen delivery valve is automatically opened or closed according to the patient's blood oxygen saturation (SpO₂).
@@ -208,8 +223,11 @@ The system reads the patient's SpO₂ (see User Story #1) and controls the MG90S
 
 **Requirements**
 
-Implement `SmartBedsideSystem.manage_oxygen_valve() -> None` to automatically regulate the oxygen delivery valve based on the patient's SpO₂ reading:
+- Implement `SmartBedsideSystem.manage_oxygen_valve() -> None` to automatically regulate the oxygen delivery valve based on the patient's SpO₂ reading:
+  - Retrieve the patient's SpO₂ reading by calling `SmartBedsideSystem.read_vital_signs() -> int`.
+  - If `SmartBedsideSystem.read_vital_signs()` raises a `SmartBedsideError` (invalid SpO₂ reading), do **NOT** catch it: let it propagate to the caller, leaving the valve and `SmartBedsideSystem.o2_valve_angle` unchanged.
+  - Set the valve angle according to the behavior described above.
 
-- Retrieve the patient's SpO₂ reading by calling `SmartBedsideSystem.read_vital_signs() -> int`.
-- If `SmartBedsideSystem.read_vital_signs()` raises a `SmartBedsideError` (invalid SpO₂ reading), do **NOT** catch it: let it propagate to the caller, leaving the valve and `SmartBedsideSystem.o2_valve_angle` unchanged.
-- Set the valve angle according to the behavior described above.
+Acceptance tests: `TestUserStory5` in `test/test_smart_bedside_system.py`.
+
+> **Reminder:** Once all the tests in `TestUserStory5` pass (together with those of the previous user stories), **COMMIT** and **PUSH** your changes to complete the task.
