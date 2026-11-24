@@ -13,16 +13,40 @@ The buzzer, the pushbutton, and the servo motor are connected to the Raspberry P
 
 ## Instructions for You
 
-- You are asked to develop *SmartBedsideSystem*.
-- You **CANNOT** change the signatures of the provided methods, move the provided methods to other classes, or change the names of the provided classes and instance variables.
-- If you belong to the **NO_LLM group**, you **CAN** use the internet to consult Python API documentation or QA websites (e.g., Stack Overflow) using **DuckDuckGo**, but you **CANNOT** use any AI tools (e.g., Microsoft Copilot).
-- If you belong to the **LLM group**, you **CAN** use **Microsoft Copilot** as your only AI tool.
+You are asked to develop *SmartBedsideSystem*. Depending on the group you belong to, the following rules apply.
+
+### LLM Group
+
+- You **MUST** use **Microsoft 365 Copilot** as your **ONLY** Large Language Model (LLM), as in the previous lab exercises: <https://m365.cloud.microsoft/login> (log in with your UNISA account).
+- You **CAN** also write code without the support of Microsoft 365 Copilot.
+- You **CANNOT** use anything else, including:
+  - Other AI tools, chatbots, LLMs, or similar technologies.
+  - Search engines (e.g., Google, DuckDuckGo).
+  - Other resources, such as documentation, Q&A forums (e.g., Stack Overflow), tutorials, or course material.
+  - Code from your previous projects (including earlier lab exercises).
+
+### NO_LLM Group
+
+- You **MUST** use **DuckDuckGo** as your **ONLY** search engine, with all AI features disabled: <https://duckduckgo.com>.
+- You **CAN** also write code without the support of DuckDuckGo.
+- You **CAN** use:
+  - Any resource found through DuckDuckGo (e.g., documentation, tutorials, Stack Overflow).
+  - The course material.
+  - Code from your previous projects (including earlier lab exercises).
+- You **CANNOT** use:
+  - Other search engines (e.g., Google, Bing).
+  - AI tools, chatbots, LLMs, or similar technologies.
+
+### Rules for Everyone
+
 - You **CANNOT** interact with your colleagues. Work independently and do your best!
-- Each **USER STORY** is accompanied by an **ACCEPTANCE TEST SUITE**.
-- The *SmartBedsideSystem* requirements are divided into a set of **USER STORIES**, which serve as a to-do list (see the _Issues_ section).
-- You should be able to develop *SmartBedsideSystem* incrementally, without having to understand all the user stories upfront. **DO NOT read ahead.** Instead, address the user stories one at a time, following the order in which they are provided. Start by implementing the requirements of the first user story. Once a story has been **IMPLEMENTED**, move on to the **NEXT** one. A story is considered **IMPLEMENTED** when its acceptance test suite **PASSES**. Naturally, all acceptance test suites for previously implemented stories must continue to pass as well. You may need to revise your program as you progress through subsequent user stories.
+- You **CANNOT** change the signatures of the provided methods, move the provided methods to other classes, or change the names of the provided classes and instance variables.
+- The *SmartBedsideSystem* requirements are divided into a set of **USER STORIES**, which serve as a to-do list (see the _Issues_ section: <https://github.com/sromano-courses/smartbedsidesystem/issues>). Each **USER STORY** is accompanied by an **ACCEPTANCE TEST SUITE**.
+- You **DO NOT** need to write tests, and you **CANNOT** change the existing acceptance test suites.
+- You should be able to develop *SmartBedsideSystem* incrementally, without having to understand all the user stories upfront. **DO NOT read ahead.** Instead, **address the user stories one at a time, following the order in which they are provided.** Start by implementing the requirements of the first user story. Once a story has been **IMPLEMENTED**, move on to the **NEXT** one. A story is considered **IMPLEMENTED** when its acceptance test suite **PASSES**. Naturally, all acceptance test suites for **previously implemented stories** must continue to **pass as well**. You may need to revise your program as you progress through subsequent user stories.
 - Each time you **IMPLEMENT** a user story, **COMMIT** your changes.
 - Whenever a user story requires you to handle an error situation, raise a `SmartBedsideError` exception. Do **NOT** add error checks that are not required by the user stories.
+- At the end of the task, remember to fill in the **POST-QUESTIONNAIRE**: <https://forms.gle/SyKCG6FZzFGrqvBSA>
 
 ## Project Structure
 
