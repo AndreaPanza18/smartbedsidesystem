@@ -41,7 +41,7 @@ You are asked to develop *SmartBedsideSystem*. Depending on the group you belong
 
 - You **CANNOT** interact with your colleagues. Work independently and do your best!
 - You **CANNOT** change the signatures of the provided methods, move the provided methods to other classes, or change the names of the provided classes and instance variables.
-- The *SmartBedsideSystem* requirements are divided into a set of **USER STORIES**, which serve as a to-do list (see the _Issues_ section: <https://github.com/sromano-courses/smartbedsidesystem/issues>). Each **USER STORY** is accompanied by an **ACCEPTANCE TEST SUITE**.
+- The *SmartBedsideSystem* requirements are divided into a set of **USER STORIES**, which serve as a to-do list. Each **USER STORY** is accompanied by an **ACCEPTANCE TEST SUITE**.
 - You **DO NOT** need to write tests, and you **CANNOT** change the existing acceptance test suites.
 - You should be able to develop *SmartBedsideSystem* incrementally, without having to understand all the user stories upfront. **DO NOT read ahead.** Instead, **address the user stories one at a time, following the order in which they are provided.** Start by implementing the requirements of the first user story. Once a story has been **IMPLEMENTED**, move on to the **NEXT** one. A story is considered **IMPLEMENTED** when its acceptance test suite **PASSES**. Naturally, all acceptance test suites for **previously implemented stories** must continue to **pass as well**. You may need to revise your program as you progress through subsequent user stories.
 - Each time you **IMPLEMENT** a user story, **COMMIT** your changes.
@@ -77,7 +77,7 @@ We recommend to **ALWAYS** run the tests of **ALL** user stories: a change made 
 
 ## API Usage
 
-Take a few minutes to understand, at a high level, how the API works. If you do not fully understand the API, do not worry: further details will be provided in the individual user stories (see the _Issues_ section).
+Take a few minutes to understand, at a high level, how the API works. If you do not fully understand the API, do not worry: further details will be provided in the individual user stories.
 
 ## User Stories
 
@@ -254,4 +254,4 @@ The system reads the patient's SpO₂ (see User Story #1) and controls the MG90S
 
 Acceptance tests: `TestUserStory5` in `test/test_smart_bedside_system.py`.
 
-> **Reminder:** Once all the tests in `TestUserStory5` pass (together with those of the previous user stories), **COMMIT** and **PUSH** your changes to complete the task.
+> **Reminder:** Once all the tests in `TestUserStory5` pass (together with those of the previous user stories), **COMMIT** and **PUSH** your changes to complete the task.  Then, fill in the **POST-QUESTIONNAIRE**: <https://forms.gle/SyKCG6FZzFGrqvBSA>
