@@ -1,3 +1,5 @@
+from encodings.punycode import selective_find
+
 import smart_bedside_error
 from src.smart_bedside_error import SmartBedsideError
 
@@ -29,6 +31,7 @@ class SmartBedsideSystem:
         self.spo2_hr_sensor = DFRobot_BloodOxygen_S()
         self.spo2_hr_sensor.begin()
         self.spo2_hr_sensor.sensor_start_collect()
+        self.spo2_hr_sensor.get_heartbeat()
 
         self.alarm_on = False
 
@@ -36,16 +39,19 @@ class SmartBedsideSystem:
         self.o2_servo.start(5.0)
         self.o2_valve_angle = 0.0
 
-    def read_vital_signs(self) -> int:
+    def read_vital_signs(self) -> list:
         """
         Read the patient's blood oxygen saturation (SpO₂).
         Returns: int: SpO₂ percentage (70–100).
         Raises: SmartBedsideError: If the sensor returns an invalid reading (-1).
         """
         spo2 = self.spo2_hr_sensor.get_spo2()
+        hb = self.spo2_hr_sensor.get_heartbeat()
         if spo2 == -1:
             raise SmartBedsideError()
-        return spo2
+        if hb == -1:
+            raise SmartBedsideError()
+        return [spo2, hb]
 
     def manage_alarm(self) -> None:
         """
